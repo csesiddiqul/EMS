@@ -90,7 +90,7 @@ class DesignationController extends Controller
         $designation = new designation();
 
         $designation->deg_name = $request->deg_name;
-        $designation->departments_id = $request->dep_id;
+        $designation->department_id = $request->dep_id;
         $designation->status = $request->status;
 
         $designation->save();
@@ -149,7 +149,7 @@ class DesignationController extends Controller
 
 
         $designation->deg_name = $request->deg_name;
-        $designation->departments_id = $request->dep_id;
+        $designation->department_id = $request->dep_id;
         $designation->status = $request->status;
 
         $designation->save();

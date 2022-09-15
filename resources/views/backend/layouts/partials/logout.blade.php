@@ -1,5 +1,18 @@
 <div class="user-profile pull-right">
-    {{-- <img class="avatar user-thumb" src="{{ asset('backend/assets/images/author/avatar.png') }}" alt="avatar"> --}}
+{{--    @php--}}
+{{--        $user = Auth::guard('admin')->user();--}}
+{{--        $user->roles[0]->name;--}}
+{{--    @endphp--}}
+
+
+
+{{--    @if($user->roles[0]->name == 'employee')--}}
+{{--        <img class="avatar user-thumb" src="{{$emd->img}}" alt="avatar">--}}
+{{--    @endif--}}
+
+
+
+
     <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
     {{ Auth::guard('admin')->user()->name }}
     <i class="fa fa-angle-down"></i></h4>

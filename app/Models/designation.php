@@ -11,7 +11,10 @@ class designation extends Model
 
 
 
-//    public  function department(){
-//        return $this->belongsTo(Department::class);
-//    }
+    public  function employee(){
+        return $this->hasOne(Employee::class);
+    }
+
+
+
 }

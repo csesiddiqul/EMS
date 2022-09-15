@@ -31,16 +31,40 @@ class DashboardController extends Controller
         }
 
 
-
         $user = Auth::guard('admin')->user();
-        return $user->employee->department;
+
+
+        if($user->roles[0]->name == 'employee'){
+
+            $emd =  Admin::find($user->id)->employee;
+
+            return view('backend.pages.dashboard.employeeDashboard', compact('emd'));
+
+        }
+
+        if($user->roles[0]->name == 'employee'){
+
+            $emd =  Admin::find($user->id)->employee;
+
+            return view('backend.pages.dashboard.employeeDashboard', compact('emd'));
+
+        }
+
+        if($user->roles[0]->name == 'superadmin'){
+            $total_roles = count(Role::select('id')->get());
+            $total_admins = count(Admin::select('id')->get());
+            $total_permissions = count(Permission::select('id')->get());
+            return view('backend.pages.dashboard.index', compact('total_admins', 'total_roles', 'total_permissions'));
+
+        }
 
 
 
 
-        $total_roles = count(Role::select('id')->get());
-        $total_admins = count(Admin::select('id')->get());
-        $total_permissions = count(Permission::select('id')->get());
-        return view('backend.pages.dashboard.index', compact('total_admins', 'total_roles', 'total_permissions','employee_data','department'));
+
+
     }
+
+
+
 }
