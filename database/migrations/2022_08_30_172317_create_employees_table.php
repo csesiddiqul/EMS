@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('admin_id');
+            $table->string('id_card ')->unique();;
             $table->string('name');
-            $table->string('email');
             $table->date('birthday');
             $table->string('gender');
             $table->string('mobile');

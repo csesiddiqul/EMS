@@ -36,9 +36,12 @@ class DashboardController extends Controller
 
         if($user->roles[0]->name == 'employee'){
 
-            $emd =  Admin::find($user->id)->employee;
+           $emd =  Admin::find($user->id)->employee;
+            $emd->admin_id;
 
-            return view('backend.pages.dashboard.employeeDashboard', compact('emd'));
+            $adminData = Admin::find($emd->admin_id);
+
+            return view('backend.pages.dashboard.employeeDashboard', compact('emd','adminData'));
 
         }
 

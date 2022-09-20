@@ -49,6 +49,12 @@ Route::group(['prefix' => 'admin'], function () {
 
     //employees
     Route::resource('employees', 'Backend\EmployeeController', ['names' => 'admin.employees']);
+
+
+    Route::get('/editEmployee',[\App\Http\Controllers\Backend\EmployeeController::class,'editemp'])->name('admin.editEmployee');
+
+
+
     Route::resource('departments', 'Backend\DepartmentController', ['names' => 'admin.departments']);
     Route::resource('designations', 'Backend\DesignationController', ['names' => 'admin.designations']);
 

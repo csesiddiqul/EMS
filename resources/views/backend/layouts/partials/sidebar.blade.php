@@ -76,6 +76,7 @@
                                     @if ($usr->can('employee.create'))
                                         <li class="{{ Route::is('admin.employees.create')  ? 'active' : '' }}"><a href="{{ route('admin.employees.create') }}">Add Employee</a></li>
                                     @endif
+
                                 </ul>
                             </li>
                         @endif

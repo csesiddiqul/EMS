@@ -69,7 +69,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6 col-sm-12">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" autocomplete="new-password" >
                                     @error('password')
                                     <span class="note-help-block text-danger">
                                             <strong>{{$message}}</strong>
@@ -88,7 +88,7 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-6 col-sm-6">
+                                <div class="form-group col-md-4 col-sm-6">
                                     <label for="username">Employee Username</label>
                                     <input type="text" class="form-control" id="username" name="username" placeholder="Enter Employee Username" required>
                                     @error('username')
@@ -98,7 +98,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="birth">Date Of Birth</label>
                                         <input type="date" class="form-control" id="birth" name="birth" placeholder="">
@@ -109,6 +109,21 @@
                                             <strong>{{$message}}</strong>
                                         </span>
                                     @enderror
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="id_card">Identity Id</label>
+                                        <input type="number" class="form-control" id="id_card"  value="{{old('id_card')}}"  name="id_card" placeholder="Enter a NID" min="0" value="1">
+                                    </div>
+
+                                    @error('id_card')
+                                    <span class="note-help-block text-danger">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                    @enderror
+
                                 </div>
 
                             </div>
@@ -164,7 +179,7 @@
 
                                             <option value="male" >Male</option>
                                             <option value="female" >Female</option>
-                                            <option>Other</option>
+                                            <option value="other">Other</option>
                                         </select>
                                     </div>
 
@@ -214,7 +229,6 @@
 
                                             <option value="bangladesh" >Bangladesh</option>
                                             <option value="other">Other</option>
-                                            <option>Other</option>
                                         </select>
                                     </div>
 
@@ -246,6 +260,7 @@
 
 
                             </div>
+
                             <div class="form-group">
                                 <label for="file">Uplode PP Image</label>
                                 <input type="file" name="file" class="form-control"  placeholder="Choose File..">

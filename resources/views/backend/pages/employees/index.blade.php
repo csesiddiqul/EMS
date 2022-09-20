@@ -56,7 +56,7 @@
                                     <th width="10%">Employee</th>
                                     <th width="10%">Departments</th>
                                     <th width="10%">Designations</th>
-                                    <th width="40%">Email</th>
+                                    <th width="40%">Identity</th>
                                     <th width="40%">Profile</th>
                                     <th width="15%">Action</th>
                                 </tr>
@@ -86,12 +86,12 @@
                                             @endforeach
                                         </td>
 
-                                        <td>{{$empData->email}}</td>
+                                        <td>{{$empData->id_card}}</td>
                                         <td><img src="{{$empData->img}}" class="rounded-circle" alt="10/10" style="width: 20px; height: 20px" ></td>
 
 
                                         <td>
-                                            <a class="btn btn-outline-success btn-xs" href="{{ route('admin.employees.edit', $empData->id) }}">Edit</a>
+                                            <a class="btn btn-outline-success btn-xs" href="{{ route('admin.employees.edit',$empData->id )}}">Edit</a>
 
                                             <a class="btn btn-outline-danger btn-xs" href="{{ route('admin.employees.destroy', $empData->id) }}"
                                                onclick="event.preventDefault(); document.getElementById('delete-form-{{ $empData->id }}').submit();">

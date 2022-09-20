@@ -50,7 +50,8 @@
                                             <span>PROFILE</span>
                                         </div>
                                         <div class="iv-right col-6 text-md-right">
-                                            <span>#{{$emd->id}}</span>
+
+                                            <span>#{{$emd->id_card}}  <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.editEmployee')}}">Edit Profile</a></span>
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +60,7 @@
                                         <div class="invoice-address">
                                             <h3 class="text-capitalize">{{$emd->name}}</h3>
                                             {{--                                            <h5 class="text-capitalize" >{{$dig->deg_name}}</h5>--}}
-                                            <p> <i class="fa fa-envelope-o"></i> {{$emd->email}} &#160;<i class="fa fa-phone-square"></i> {{$emd->mobile}} &#160;<i class="fa fa-user"></i> {{$emd->nid}}</p>
+                                            <p> <i class="fa fa-envelope-o"></i> {{$adminData->email}} &#160;<i class="fa fa-phone-square"></i> {{$emd->mobile}} &#160;<i class="fa fa-user"></i> {{$emd->nid}}</p>
                                             <p class="text-capitalize">{{$emd->nationality}}, &#160;{{$emd->gender}} &#160;,{{$emd->religion}}</p>
                                             {{--                                            <p class="text-capitalize">{{$dip->dep_name}}</p>--}}
                                         </div>
@@ -68,7 +69,7 @@
                                         <ul class="invoice-date">
                                             <img src="{{$emd->img}}" alt="10/10" class="img-thumbnail w-25 mb-3">
 
-                                            {{--                                            <li>Joining Date : {{$dip->created_at->format('Y-m-d')}}</li>--}}
+                                              <li>Joining Date : {{$emd->created_at->format('Y-m-d')}}</li>
 
                                         </ul>
                                     </div>
@@ -122,8 +123,6 @@
             </div>
         </div>
     @endif
-
-
 
 
 
