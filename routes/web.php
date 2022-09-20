@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Models\Employee;
 use App\Models\Admin;
+use App\Models\Employee;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,16 +49,15 @@ Route::group(['prefix' => 'admin'], function () {
 
     //employees
     Route::resource('employees', 'Backend\EmployeeController', ['names' => 'admin.employees']);
-
-
     Route::get('/editEmployee',[\App\Http\Controllers\Backend\EmployeeController::class,'editemp'])->name('admin.editEmployee');
 
 
-
+    //departments
     Route::resource('departments', 'Backend\DepartmentController', ['names' => 'admin.departments']);
     Route::resource('designations', 'Backend\DesignationController', ['names' => 'admin.designations']);
 
-
+    //projects
+    Route::resource('projects', '\App\Http\Controllers\Backend\ProjectController',['names' => 'admin.projects']);
 
     // Login Routes
     Route::get('/login', 'Backend\Auth\LoginController@showLoginForm')->name('admin.login');

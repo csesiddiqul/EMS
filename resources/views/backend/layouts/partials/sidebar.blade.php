@@ -122,6 +122,27 @@
                             </li>
                         @endif
 
+
+
+
+                        @if ($usr->can('project.create') || $usr->can('project.view') ||  $usr->can('project.edit') ||  $usr->can('project.delete'))
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-list"></i><span>
+                                Project
+                        </span></a>
+                                <ul class="collapse {{ Route::is('admin.designations.create') || Route::is('admin.designations.index') || Route::is('admin.designations.edit') || Route::is('admin.designations.show') ? 'in' : '' }}">
+
+                                    @if ($usr->can('project.view'))
+                                        <li class="{{ Route::is('admin.projects.index')  || Route::is('admin.projects.edit') ? 'active' : '' }}"><a href="{{ route('admin.projects.index') }}">Project List</a></li>
+                                    @endif
+
+                                    @if ($usr->can('project.create'))
+                                        <li class="{{ Route::is('admin.projects.create')  ? 'active' : '' }}"><a href="{{ route('admin.projects.create') }}">Project Add</a></li>
+                                    @endif
+                                </ul>
+                            </li>
+                        @endif
+
                 </ul>
             </nav>
         </div>
