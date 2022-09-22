@@ -56,8 +56,9 @@ class EmployeeController extends Controller
 
         $departments = Department::all();
         $designations = designation::all();
+        $employeeData = Employee::all();
         $roles  = Role::all();
-        return view('backend.pages.employees.create',compact('departments','designations','roles'));
+        return view('backend.pages.employees.create',compact('departments','designations','roles','employeeData'));
     }
 
 
@@ -228,10 +229,18 @@ class EmployeeController extends Controller
             $admin->password = Hash::make($request->password);
         }
         $admin->save();
-        $emRole = 'employee';
-        if ($emRole) {
-            $admin->assignRole($emRole);
+
+
+
+
+
+        $employee->roles()->detach();
+        if ($request->roles) {
+            $admin->assignRole($request->roles);
         }
+
+
+
         $admin_data = $admin->id;
         $dbsl = $employee->img;
         if ($request->hasFile('file')){

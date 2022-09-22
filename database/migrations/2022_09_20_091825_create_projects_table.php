@@ -18,14 +18,14 @@ return new class extends Migration
             $table->string('project_name');
             $table->integer('project_code');
             $table->integer('assign_to');
-            $table->string('trial_period')->nullable();;
-            $table->date('start_data')->nullable();;
-            $table->date('complete_data')->nullable();;
-            $table->date('hand_over_data')->nullable();;
+            $table->string('trial_period')->nullable();
+            $table->date('start_data')->nullable();
+            $table->date('complete_data')->nullable();
+            $table->date('hand_over_data')->nullable();
             $table->tinyInteger('status')->comment('1=active, 2=on-hold, 3= complete');
             $table->string('srs');
-            $table->longText('technology_used')->nullable();;
-            $table->integer('maintenance_id')->nullable();;
+            $table->longText('technology_used')->nullable();
+            $table->integer('maintenance_id')->nullable();
             $table->timestamps();
         });
     }

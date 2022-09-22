@@ -41,9 +41,20 @@
             <div class="col-12 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title float-left">Projects List</h4>
+                        {{$resuls->project_name}}
+                        {{$resuls->project_code}}
+                    </div>
+                </div>
+            </div>
+            <!-- data table end -->
+
+
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title float-left">Maintenance History </h4>
                         <p class="float-right mb-2">
-                            <a class="btn btn-primary text-white" href="{{ route('admin.projects.create') }}">New Projects</a>
+                            <a class="btn btn-primary text-white" href="{{ route('admin.projects.create') }}">Add History</a>
                         </p>
                         <div class="clearfix"></div>
                         <div class="data-tables">
@@ -53,61 +64,23 @@
                                 <thead class="bg-light text-capitalize">
                                 <tr>
                                     <th width='10%'>Sl</th>
-                                    <th width="20%">Projects Name</th>
-                                    <th width="20%">Project Code</th>
-                                    <th width="20%">Assign To</th>
-                                    <th width="10%">Status</th>
-                                    <th width="20%">Action</th>
+                                    <th width="10%">Complain No</th>
+                                    <th width="10%">Date</th>
+                                    <th width="10%">Client</th>
+                                    <th width="10%">Project</th>
+                                    <th width="20%">Support Engr</th>
+                                    <th width="20%">Date Problem Fix</th>
+                                    <th width="10%">Remark</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($projects as $key=> $result)
-                                <tr>
 
-                                    <td>{{$key+1}}</td>
-                                    <td>{{$result->project_name}}</td>
-                                    <td>{{$result->project_code}}</td>
-                                    <td>
-                                        @foreach($employees as $employee)
-
-                                            {{$result->assign_to == $employee->id ? $employee->name : ''}}
-                                        @endforeach
-
-                                    </td>
-                                    <td>{{$result->status == 1 ? 'Active' : '' }}</td>
-                                    <td>
-
-
-                                        <a class="btn btn-outline-info btn-xs" href="{{ route('admin.projects.show',$result->id )}}">Details</a>
-
-                                        <a class="btn btn-outline-success btn-xs" href="{{ route('admin.employees.edit',$result->id )}}">Edit</a>
-
-                                        <a class="btn btn-outline-danger btn-xs" href="{{ route('admin.employees.destroy', $result->id) }}"
-                                           onclick="event.preventDefault(); document.getElementById('delete-form-{{ $result->id }}').submit();">
-                                            Delete
-                                        </a>
-
-                                        <form id="delete-form-{{ $result->id }}" action="{{ route('admin.employees.destroy', $result->id) }}" method="POST" style="display: none;">
-                                            @method('DELETE')
-                                            @csrf
-                                        </form>
-
-                                    </td>
-
-                                </tr>
-                                @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- data table end -->
-
-
-
-
-
         </div>
     </div>
 @endsection

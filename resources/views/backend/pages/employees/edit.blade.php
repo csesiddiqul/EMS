@@ -9,6 +9,8 @@
 @endsection
 
 @section('styles')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
     <script src="{{ asset('backend/assets/js/vendor/jquery-3.6.1.min.js') }}"></script>
 @endsection
 
@@ -173,6 +175,14 @@
                             </div>
 
 
+                            <div class="form-group col-md-6 col-sm-6 {{$usr->roles[0]->name == 'employee' ? 'd-none':''}} ">
+                                <label for="password">Assign Roles</label>
+                                <select name="roles[]" id="roles" class="form-control select2" multiple>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->name }}" {{$employeeData->hasRole($role->name) ? 'selected' : '' }}>{{$role->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-4">

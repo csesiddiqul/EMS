@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
+
 class ProjectController extends Controller
 {
     public $user;
@@ -35,8 +36,12 @@ class ProjectController extends Controller
         }
 
 
-        $projects = Project::all();
-        return view('backend.pages.project.index', compact('projects'));
+
+
+      $projects = Project::all();
+      $employees = Employee::all();
+
+        return view('backend.pages.project.index', compact('projects','employees'));
 
     }
 
@@ -47,8 +52,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        if (is_null($this->user) || !$this->user->can('admin.create')) {
-            abort(403, 'Sorry !! You are Unauthorized to create any admin !');
+        if (is_null($this->user) || !$this->user->can('project.create')) {
+            abort(403, 'Sorry !! You are Unauthorized to create any admin!');
         }
 
         $employees  = Employee::all();
@@ -97,9 +102,13 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show($id)
     {
-        //
+        $resuls = Project::find($id);
+
+
+
+       return view('backend.pages.project.show', compact('resuls'));
     }
 
     /**
